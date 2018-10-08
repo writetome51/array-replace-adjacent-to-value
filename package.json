@@ -8,16 +8,19 @@
   },
   "keywords": [
     "array",
+    "replace",
+    "values",
+    "adjacent",
     "manipulation"
   ],
   "author": "Steve Thompson",
   "license": "MIT",
   "devDependencies": {},
   "dependencies": {
-    "@writetome51/adjacent-to-value-info-interface": "latest",
-    "@writetome51/array-and-index-validation": "latest",
+    "basic-data-handling": "latest",
+    "error-if-values-are-not-arrays": "latest",
     "@writetome51/array-get-indexes-basic": "latest",
-    "@writetome51/array-insert-replace-basic": "latest",
-    "@writetome51/array-analysis-basic": "latest"
+    "@writetome51/array-and-index-validation": "latest",
+    "@writetome51/adjacent-to-value-info-interface": "latest"
   }
 }

@@ -1,10 +1,11 @@
+import { errorIfNotInteger } from 'basic-data-handling/errorIfNotInteger';
+import { errorIfNotIntegerZeroOrGreater } from 'basic-data-handling/errorIfNotIntegerZeroOrGreater';
 import { getFirstIndexOf } from '@writetome51/array-get-indexes-basic/getFirstIndexOf';
 import { ifIndexNotNegative_getActionResult }
 	from '@writetome51/array-and-index-validation/ifIndexNotNegative_getActionResult';
-import { errorIfIndexNotValidAfterOffsetWasAdded }
-	from '@writetome51/array-and-index-validation/errorIf/errorIfIndexNotValidAfterOffsetWasAdded';
-import { errorIfValuesAreNotArrays }
-	from '@writetome51/array-and-index-validation/errorIf/errorIfValuesAreNotArrays';
+import { errorIfArrayTooShortToMeetAdjacentItemsRequest }
+	from '@writetome51/array-and-index-validation/errorIf/errorIfArrayTooShortToMeetAdjacentItemsRequest';
+import { errorIfValuesAreNotArrays } from 'error-if-values-are-not-arrays';
 import { IAdjacentToValueInfo }
 	from '@writetome51/adjacent-to-value-info-interface/IAdjacentToValueInfo';
 
@@ -17,14 +18,21 @@ import { IAdjacentToValueInfo }
 export function replaceAdjacentToValue(
 	info: IAdjacentToValueInfo, newValues: any[], array
 ): void {
-
-	errorIfValuesAreNotArrays([newValues, array]);
+	checkDataValidity();
 	let index = getFirstIndexOf(info.value, array);
 
 	ifIndexNotNegative_getActionResult(index, () => {
 		index += info.offset;
-		errorIfIndexNotValidAfterOffsetWasAdded(index, array);
-
+		errorIfArrayTooShortToMeetAdjacentItemsRequest(
+			index, info.howMany, array
+		);
 		array.splice(index, info.howMany, ...newValues);
 	});
+
+
+	function checkDataValidity() {
+		errorIfValuesAreNotArrays([newValues, array]);
+		errorIfNotInteger(info.offset);
+		errorIfNotIntegerZeroOrGreater(info.howMany);
+	}
 }
