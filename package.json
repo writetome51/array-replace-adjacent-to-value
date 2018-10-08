@@ -1,0 +1,23 @@
+{
+  "name": "@writetome51/array-replace-adjacent-to-value",
+  "version": "1.0.0",
+  "description": "Function that replaces adjacent items near (or including) a specified value in the array",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "array",
+    "manipulation"
+  ],
+  "author": "Steve Thompson",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
+    "@writetome51/adjacent-to-value-info-interface": "latest",
+    "@writetome51/array-and-index-validation": "latest",
+    "@writetome51/array-get-indexes-basic": "latest",
+    "@writetome51/array-insert-replace-basic": "latest",
+    "@writetome51/array-analysis-basic": "latest"
+  }
+}
