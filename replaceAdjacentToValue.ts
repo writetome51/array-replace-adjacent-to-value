@@ -1,13 +1,10 @@
 import { errorIfNotInteger } from 'basic-data-handling/errorIfNotInteger';
-import { errorIfNotIntegerZeroOrGreater } from 'basic-data-handling/errorIfNotIntegerZeroOrGreater';
 import { getFirstIndexOf } from '@writetome51/array-get-indexes-basic/getFirstIndexOf';
 import { ifIndexNotNegative_getActionResult }
 	from '@writetome51/array-and-index-validation/ifIndexNotNegative_getActionResult';
-import { errorIfArrayTooShortToMeetAdjacentItemsRequest }
-	from '@writetome51/array-and-index-validation/errorIf/errorIfArrayTooShortToMeetAdjacentItemsRequest';
-import { errorIfValuesAreNotArrays } from 'error-if-values-are-not-arrays';
 import { IAdjacentToValueInfo }
 	from '@writetome51/adjacent-to-value-info-interface/IAdjacentToValueInfo';
+import { _replaceAdjacentItems } from '@writetome51/array-replace-adjacent-items/_replaceAdjacentItems';
 
 
 // info = {value: anyExceptObject, offset: positive/negative integer, howMany: number of items to replace}
@@ -18,21 +15,13 @@ import { IAdjacentToValueInfo }
 export function replaceAdjacentToValue(
 	info: IAdjacentToValueInfo, newValues: any[], array
 ): void {
-	checkDataValidity();
+	// This validates info.value and array:
 	let index = getFirstIndexOf(info.value, array);
+	errorIfNotInteger(info.offset);
 
 	ifIndexNotNegative_getActionResult(index, () => {
 		index += info.offset;
-		errorIfArrayTooShortToMeetAdjacentItemsRequest(
-			index, info.howMany, array
-		);
-		array.splice(index, info.howMany, ...newValues);
+		// This validates info.howMany and checks if array is too short to meet request:
+		_replaceAdjacentItems(index, info.howMany, newValues, array);
 	});
-
-
-	function checkDataValidity() {
-		errorIfValuesAreNotArrays([newValues, array]);
-		errorIfNotInteger(info.offset);
-		errorIfNotIntegerZeroOrGreater(info.howMany);
-	}
 }

@@ -1,6 +1,6 @@
 {
   "name": "@writetome51/array-replace-adjacent-to-value",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Function that replaces adjacent items near (or including) a specified value in the array",
   "main": "",
   "scripts": {
@@ -18,9 +18,9 @@
   "devDependencies": {},
   "dependencies": {
     "basic-data-handling": "latest",
-    "error-if-values-are-not-arrays": "latest",
     "@writetome51/array-get-indexes-basic": "latest",
     "@writetome51/array-and-index-validation": "latest",
-    "@writetome51/adjacent-to-value-info-interface": "latest"
+    "@writetome51/adjacent-to-value-info-interface": "latest",
+    "@writetome51/array-replace-adjacent-items": "latest"
   }
 }
