@@ -1,11 +1,16 @@
 {
   "name": "@writetome51/array-replace-adjacent-to-value",
   "version": "1.0.2",
-  "description": "Function that replaces adjacent items near (or including) a specified value in the array",
+  "description": "Replaces adjacent items near (or including) a specified value in the array",
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/writetome51/array-replace-adjacent-to-value.git"
+  },
+
   "keywords": [
     "array",
     "replace",
@@ -15,6 +20,10 @@
   ],
   "author": "Steve Thompson",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/writetome51/array-replace-adjacent-to-value/issues"
+  },
+  "homepage": "https://github.com/writetome51/array-replace-adjacent-to-value#readme",
   "devDependencies": {},
   "dependencies": {
     "basic-data-handling": "latest",
