@@ -1,7 +1,9 @@
 import { errorIfNotInteger } from 'basic-data-handling/errorIfNotInteger';
-import { getFirstIndexOf } from '@writetome51/array-get-indexes-basic/getFirstIndexOf';
+import { getFirstIndexOf } from '@writetome51/array-get-indexes-basic';
 import { ifIndexNotNegative_getActionResult }
 	from '@writetome51/array-and-index-validation/ifIndexNotNegative_getActionResult';
+import { errorIfIndexNotValidAfterOffsetWasAdded }
+	from '@writetome51/array-and-index-validation/errorIf/errorIfIndexNotValidAfterOffsetWasAdded';
 import { IAdjacentToValueInfo }
 	from '@writetome51/adjacent-to-value-info-interface/IAdjacentToValueInfo';
 import { _replaceAdjacentItems } from '@writetome51/array-replace-adjacent-items/_replaceAdjacentItems';
@@ -13,7 +15,9 @@ import { _replaceAdjacentItems } from '@writetome51/array-replace-adjacent-items
 // Also, remember this function only looks for the first instance of info.value
 
 export function replaceAdjacentToValue(
-	info: IAdjacentToValueInfo, newValues: any[], array
+	info: IAdjacentToValueInfo,
+	newValues: any[],
+	array
 ): void {
 	// This validates info.value and array:
 	let index = getFirstIndexOf(info.value, array);
@@ -21,6 +25,7 @@ export function replaceAdjacentToValue(
 
 	ifIndexNotNegative_getActionResult(index, () => {
 		index += info.offset;
+		errorIfIndexNotValidAfterOffsetWasAdded(index, array);
 		// This validates info.howMany and checks if array is too short to meet request:
 		_replaceAdjacentItems(index, info.howMany, newValues, array);
 	});

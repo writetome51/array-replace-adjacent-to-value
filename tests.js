@@ -15,5 +15,8 @@ replaceAdjacentToValue_1.replaceAdjacentToValue(info, [4.5], arr);
 // --> [ 1, 3, 4.5, 5 ]
 console.log(arr);
 // Should trigger error:
+info = { value: 5, howMany: 1, offset: -4 };
+replaceAdjacentToValue_1.replaceAdjacentToValue(info, [4.5], arr);
+// Should trigger error:
 info = { value: 5, howMany: 0, offset: -1 };
 replaceAdjacentToValue_1.replaceAdjacentToValue(info, [4.5], arr);
