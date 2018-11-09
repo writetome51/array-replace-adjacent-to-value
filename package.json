@@ -1,6 +1,6 @@
 {
   "name": "@writetome51/array-replace-adjacent-to-value",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Replaces adjacent items near (or including) a specified value in the array",
   "main": "index.js",
   "scripts": {
