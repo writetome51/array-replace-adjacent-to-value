@@ -1,10 +1,11 @@
 {
   "name": "@writetome51/array-replace-adjacent-to-value",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Replaces adjacent items near (or including) a specified value in the array",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -25,10 +26,10 @@
   "homepage": "https://github.com/writetome51/array-replace-adjacent-to-value#readme",
   "devDependencies": {},
   "dependencies": {
-    "basic-data-handling": "~1.0.13",
-    "@writetome51/array-get-indexes-basic": "~1.0.6",
-    "@writetome51/array-and-index-validation": "~1.0.2",
+    "basic-data-handling": "~1.0.15",
+    "@writetome51/array-get-indexes": "~1.0.0",
+    "@writetome51/array-and-index-validation": "~1.0.6",
     "@writetome51/adjacent-to-value-info-interface": "~1.0.2",
-    "@writetome51/array-replace-adjacent-items": "~1.0.1"
+    "@writetome51/array-replace-adjacent-items": "~1.0.4"
   }
 }

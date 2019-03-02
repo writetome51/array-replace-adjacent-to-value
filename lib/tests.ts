@@ -1,4 +1,4 @@
-import { replaceAdjacentToValue } from './replaceAdjacentToValue';
+import { replaceAdjacentToValue } from '.';
 import { IAdjacentToValueInfo }
 	from '@writetome51/adjacent-to-value-info-interface/IAdjacentToValueInfo';
 
