@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var errorIfNotInteger_1 = require("basic-data-handling/errorIfNotInteger");
+var error_if_not_integer_1 = require("error-if-not-integer");
 var array_get_indexes_1 = require("@writetome51/array-get-indexes");
-var ifIndexNotNegative_getActionResult_1 = require("@writetome51/array-and-index-validation/ifIndexNotNegative_getActionResult");
-var errorIfIndexNotValidAfterOffsetWasAdded_1 = require("@writetome51/array-and-index-validation/errorIf/errorIfIndexNotValidAfterOffsetWasAdded");
+var error_if_index_is_negative_1 = require("error-if-index-is-negative");
+var error_if_index_not_valid_after_offset_was_added_1 = require("error-if-index-not-valid-after-offset-was-added");
 var array_replace_adjacent_items_1 = require("@writetome51/array-replace-adjacent-items");
 /**********************
  Replaces `howMany` adjacent items in `array` with `newValues`, starting at, or
@@ -20,12 +20,11 @@ function replaceAdjacentToValue(
 info, newValues, array) {
     // This validates info.value and array:
     var index = array_get_indexes_1.getFirstIndexOf(info.value, array);
-    errorIfNotInteger_1.errorIfNotInteger(info.offset);
-    ifIndexNotNegative_getActionResult_1.ifIndexNotNegative_getActionResult(index, function () {
-        index += info.offset;
-        errorIfIndexNotValidAfterOffsetWasAdded_1.errorIfIndexNotValidAfterOffsetWasAdded(index, array);
-        // This validates info.howMany and checks if array is too short to meet request:
-        array_replace_adjacent_items_1._replaceAdjacentItems(index, info.howMany, newValues, array);
-    });
+    error_if_index_is_negative_1.errorIfIndexIsNegative(index);
+    error_if_not_integer_1.errorIfNotInteger(info.offset);
+    index += info.offset;
+    error_if_index_not_valid_after_offset_was_added_1.errorIfIndexNotValidAfterOffsetWasAdded(index, array.length);
+    // This validates info.howMany and checks if array is too short to meet request:
+    array_replace_adjacent_items_1._replaceAdjacentItems(index, info.howMany, newValues, array);
 }
 exports.replaceAdjacentToValue = replaceAdjacentToValue;
